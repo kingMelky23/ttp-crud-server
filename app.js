@@ -5,8 +5,9 @@
  */
 
 // Load environmental variables from .env file
-require("dotenv").config();
+require("dotenv").config(); //loads environmental variables
 
+//packages we will be using
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -19,9 +20,9 @@ const createLocalDatabase = require("./utils/createLocalDatabase");
 const seedDatabase = require("./utils/seedDatabase");
 
 // Our database instance;
-const db = require("./database");
+// do not need yet//const db = require("./database");
 
-// Our apiRouter
+// Our apiRouter 
 const apiRouter = require("./routes/index");
 
 // A helper function to sync our database;
@@ -55,7 +56,7 @@ const configureApp = () => {
   app.use(compression());
   app.use(cookieParser());
 
-  app.use(express.static(path.join(__dirname, "public")));
+  // not in use //app.use(express.static(path.join(__dirname, "public")));
 
   // Mount our apiRouter
   app.use("/api", apiRouter);
@@ -81,7 +82,7 @@ const configureApp = () => {
 
 // Main function declaration;
 const bootApp = async () => {
-  await syncDatabase();
+ //do not need just yet // await syncDatabase();
   await configureApp();
 };
 

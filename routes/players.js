@@ -3,6 +3,8 @@ var router = express.Router();
 const { Player } = require("../database/models");
 
 /* GET users listing. */
+
+
 router.get("/", function (req, res, next) {
   Player.findAll()
     .then((players) => res.json(players))
